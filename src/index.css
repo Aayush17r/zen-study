@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #0a0b10;
+    --bg-card: #12141f;
+    --bg-card-hover: #191c2b;
+    --text-primary: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent: #6366f1;
+    --accent-light: #818cf8;
+    --accent-glow: rgba(99, 102, 241, 0.25);
+    --border-color: #1e2235;
+  }
+
+  [data-theme="amoled"] {
+    --bg-primary: #000000;
+    --bg-card: #0a0a0c;
+    --bg-card-hover: #141418;
+    --text-primary: #ffffff;
+    --text-muted: #a1a1aa;
+    --accent: #6366f1;
+    --accent-light: #818cf8;
+    --accent-glow: rgba(99, 102, 241, 0.3);
+    --border-color: #27272a;
+  }
+
+  [data-theme="sepia"] {
+    --bg-primary: #211c19;
+    --bg-card: #2c2522;
+    --bg-card-hover: #38302b;
+    --text-primary: #f4ede4;
+    --text-muted: #b8aba0;
+    --accent: #d97736;
+    --accent-light: #ea8f52;
+    --accent-glow: rgba(217, 119, 54, 0.25);
+    --border-color: #423731;
+  }
+
+  [data-theme="forest"] {
+    --bg-primary: #0c1410;
+    --bg-card: #132019;
+    --bg-card-hover: #1c2e25;
+    --text-primary: #e6f4ec;
+    --text-muted: #8caea0;
+    --accent: #10b981;
+    --accent-light: #34d399;
+    --accent-glow: rgba(16, 185, 129, 0.25);
+    --border-color: #243d31;
+  }
+
+  [data-theme="slate"] {
+    --bg-primary: #0f172a;
+    --bg-card: #1e293b;
+    --bg-card-hover: #334155;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent-light: #7dd3fc;
+    --accent-glow: rgba(56, 189, 248, 0.25);
+    --border-color: #334155;
+  }
+
+  [data-theme="minimalLight"] {
+    --bg-primary: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    --accent: #4f46e5;
+    --accent-light: #6366f1;
+    --accent-glow: rgba(79, 70, 229, 0.15);
+    --border-color: #e2e8f0;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Custom Scrollbar for notes and flashcard lists */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* 3D Flashcard Flip */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Mindful Breathing Animations */
+@keyframes breatheGuide {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  35% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  65% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+}
+
+.animate-breathe {
+  animation: breatheGuide 19s ease-in-out infinite;
+}
